@@ -18,7 +18,7 @@ The https://github.com/SteveJustin1963/tec-T800 will use servo motors and there 
 - Permanent Magnet Stepper. PM steppers have rotors that are constructed with permanent magnets, which interact with the electromagnets of the stator to create rotation and torque. ...
 - Variable Reluctance Stepper.
 - Hybrid Syncronous Stepper.
-or 
+### or 
 - Active rotor: permanent magnet step motor(PM)
 - Reactive rotor: variable reluctance stepper motor(VR)
 - Combination of VR and PM: Hybrid stepper motor (HY)
