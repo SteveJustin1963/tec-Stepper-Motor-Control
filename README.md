@@ -45,35 +45,9 @@ The https://github.com/SteveJustin1963/tec-T800 will use servo motors and there 
 
 
 ### controller A4988
+from https://howtomechatronics.com/tutorials/arduino/how-to-control-stepper-motor-with-a4988-driver-and-arduino/ 
 
-![mkmmprqskomonjmtkrrorttpqtsmsqntqmulFLCa](https://user-images.githubusercontent.com/58069246/169950912-ad9e476b-ac5d-4c3c-a0f2-931428dc3909.jpg)
-![8688bdce6a8a958f6ddadffbchfbafhcbeg7rxou](https://user-images.githubusercontent.com/58069246/169950942-ea9a7659-74fd-472f-99cc-f6114c631746.jpg)
-![dbddgihjbfdfeadkbiifikkghkglleklhgfcwCtv](https://user-images.githubusercontent.com/58069246/169950950-c8c92372-4900-4b52-af9a-1c3144217924.jpg)
-
-### Key Features:
-```
-This product can operate bipolar stepper motors in full, half, 1/4, 1/8 and 1/16 step modes
-Output drive performance up to 35 V and 2A
-The A4988 includes a fixed off-time current regulator that operates in slow or mixed decay modes
-The converter is the key to the easy implementation of the A4988. Just enter a pulse in the "step" 
-input to drive the motor to generate microsteps
-No need for phase sequence table, high frequency control line or complicated interface programming
-The A4988 interface is ideal for applications where complex microprocessors are unavailable or overloaded.
-
-Electrical Specifications:
-Suitable for driving step motors below 8V ~ 35V 2A;
-Simple step and direction control interface;
-Five different step modes: full, half, 1/4, 1/8 and 1/16;
-Adjustable potentiometer can adjust the maximum current output, so as to obtain a higher step rate;
-Automatic current attenuation mode detection / selection;
-Over-temperature shutdown circuit, under-voltage lockout, cross-current protection;
-Short-to-ground protection and short-to-load protection
-3.3V and 5V compatible logic current
-Driving current algorithm: I = V * 0.8, the potentiometer has three pins. Use a multimeter to 
-test the voltage between the pin facing 4988 and GND. The current can be adjusted by the potentiometer. 
-Clockwise is to increase the current.Counterclockwise is to increase the current.
-```
-
+ 
 
 ### Iterate
 
