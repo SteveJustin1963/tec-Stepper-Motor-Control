@@ -53,4 +53,5 @@ from https://howtomechatronics.com/tutorials/arduino/how-to-control-stepper-moto
 
 ### Ref
 - https://en.wikipedia.org/wiki/Stepper_motor
-- 
+- https://all3dp.com/2/what-s-a-stepper-motor-driver-why-do-i-need-it/
+
