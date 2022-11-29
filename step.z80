@@ -1,0 +1,53 @@
+// z80 assembly code to control one stepper motor that has 4 inputs. 
+// my circuit only has 4 binary outputs. the program controls the motors direction and angle.
+// using the stepper table for 4 pole stepper motor
+
+
+| Step | A | B | C | D |
+|-----|:-:|:-:|:-:|:-:|
+| 1   | 1 | 0 | 0 | 0 |
+| 2   | 1 | 1 | 0 | 0 |
+| 3   | 0 | 1 | 0 | 0 |
+| 4   | 0 | 1 | 1 | 0 |
+| 5   | 0 | 0 | 1 | 0 |
+| 6   | 0 | 0 | 1 | 1 |
+| 7   | 0 | 0 | 0 | 1 |
+| 8   | 1 | 0 | 0 | 1 |
+
+---
+
+The code below will control a 4 pole stepper motor using the above table.
+
+LD   A, 01h ; load A with the output for step 1
+OUT  (0FFh), A ; output the value to the stepper motor
+
+LD   B, 8 ; load B with the total number of steps
+
+LOOP:
+DEC  B ; subtract 1 from B
+
+LD   C, B ; load C with the new value of B
+AND  C, 07h ; mask the lower 3 bits
+JP   Z, ZERO ; jump to ZERO if lower 3 bits are zero
+
+LD   A, (stepTable+C) ; load A with the output for the current step
+OUT  (0FFh), A ; output the value to the stepper motor
+
+JR   LOOP ; jump to LOOP
+
+ZERO: ; label for when lower 3 bits are zero
+LD   A, 01h ; load A with the output for step 1
+OUT  (0FFh), A ; output the value to the stepper motor
+
+stepTable: ; label for the table of step outputs
+DB   01h ; step 1
+DB   03h ; step 2
+DB   02h ; step 3
+DB   06h ; step 4
+DB   04h ; step 5
+DB   0Ch ; step 6
+DB   08h ; step 7
+DB   09h ; step 8
+
+END ; end of program
+
