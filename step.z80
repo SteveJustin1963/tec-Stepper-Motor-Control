@@ -16,7 +16,7 @@
 
 ---
 
-The code below will control a 4 pole stepper motor using the above table.
+; The code below will control a 4 pole stepper motor using the above table.
 
 LD   A, 01h ; load A with the output for step 1
 OUT  (0FFh), A ; output the value to the stepper motor
