@@ -58,4 +58,6 @@ from https://howtomechatronics.com/tutorials/arduino/how-to-control-stepper-moto
 - http://www.forth.org/fd/Step.html
 - https://github.com/arduino-libraries/Stepper
 - https://www.instructables.com/4-5-6-and-8-wire-Stepper-Motors/
+- http://jgmalcolm.com/z80/intermediate/tabl
+
 
