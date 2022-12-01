@@ -29,6 +29,42 @@ binary control lines are A,B,C,D
 6. After the loop is complete, turn the motor off 
 7. Check to ensure the motor has reached the desired angle and direction
 
+////////
+ create an Algorithm to control the direction of rotation of a 4 pole stepper motor
+using this table
+of binary control lines are A,B,C,D
+
+| Step | A | B | C | D |
+|-----|:-:|:-:|:-:|:-:|
+| 1   | 1 | 0 | 0 | 0 |
+| 2   | 1 | 1 | 0 | 0 |
+| 3   | 0 | 1 | 0 | 0 |
+| 4   | 0 | 1 | 1 | 0 |
+| 5   | 0 | 0 | 1 | 0 |
+| 6   | 0 | 0 | 1 | 1 |
+| 7   | 0 | 0 | 0 | 1 |
+| 8   | 1 | 0 | 0 | 1 |
+
+---
+
+Algorithm:
+
+1. Set all control lines to 0 (A,B,C,D).
+2. Increment the step number. 
+3. Depending on the step number, set the appropriate control lines to 1. 
+4. Repeat steps 2 and 3. 
+
+For example, if the step number is 2, set control line A and B to 1. If the step number is 4, set control lines B and C to 1. 
+
+Once the step number reaches 8, reset the step number back to 1 and repeat the process.
+/////////////////////
+
+
+
+
+
+
+
 write c code to control one stepper motor that has 4 inputs. 
 ---
 #include <stdio.h>
