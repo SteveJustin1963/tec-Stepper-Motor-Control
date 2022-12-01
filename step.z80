@@ -51,3 +51,25 @@ DB   09h ; step 8
 
 END ; end of program
 
+//////////////////////////
+se code  DJNZ and using DE and OTIR and OUTI op codes in your solution
+---
+
+LD A, 0 ;load A with 0
+LD B, 8 ;load B with 8
+LD DE, 1 ;load DE with 1
+
+step_loop:
+DJNZ step_loop ;loop 8 times
+
+LD C, A ;load C with A
+OUTI ;output C to the stepper motor
+
+SRL DE ;shift DE right
+RLA ;rotate A left
+
+OTIR ;output DE to the stepper motor
+
+JP step_loop ;jump to step_loop
+////////////////////////////////////
+
