@@ -52,24 +52,38 @@ DB   09h ; step 8
 END ; end of program
 
 //////////////////////////
-se code  DJNZ and using DE and OTIR and OUTI op codes in your solution
+rewrite the above code using  DJNZ and using DE and OTIR and OUTI op codes in your solution
 ---
+ 
+LD   A, 01h ; load A with the output for step 1
+OUT  (0FFh), A ; output the value to the stepper motor
 
-LD A, 0 ;load A with 0
-LD B, 8 ;load B with 8
-LD DE, 1 ;load DE with 1
+LD   B, 8 ; load B with the total number of steps
 
-step_loop:
-DJNZ step_loop ;loop 8 times
+LOOP:
+LD   C, B ; load C with the new value of B
+AND  C, 07h ; mask the lower 3 bits
+JP   Z, ZERO ; jump to ZERO if lower 3 bits are zero
 
-LD C, A ;load C with A
-OUTI ;output C to the stepper motor
+LD   A, (stepTable+C) ; load A with the output for the current step
+OUT  (0FFh), A ; output the value to the stepper motor
 
-SRL DE ;shift DE right
-RLA ;rotate A left
+DJNZ LOOP ; decrement B and jump to LOOP if not zero
 
-OTIR ;output DE to the stepper motor
+ZERO: ; label for when lower 3 bits are zero
+LD   A, 01h ; load A with the output for step 1
+DE   0FFh ; load DE with the address of the stepper motor
+LD   B, 8 ; load B with the total number of steps
 
-JP step_loop ;jump to step_loop
-////////////////////////////////////
+OTIR ; output the value in A to the stepper motor 
 
+stepTable: ; label for the table of step outputs
+DB   01h ; step 1
+DB   03h ; step 2
+DB   02h ; step 3
+DB   06h ; step 4
+DB   04h ; step 5
+DB   0Ch ; step 6
+DB   08h ; step 7
+DB   09h ; step 8
+////////////////////////////////////////
